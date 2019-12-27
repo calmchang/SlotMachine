@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=.1,user-scalable=no">
+
+
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+    *{
+        position: relative;
+        border:0;
+        padding:0;
+        margin:0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size:24px;
+
+    }
+    li{list-style: none;}
+    html
+    {
+      width:100%;height:100%;
+      background:white;
+      overflow: hidden;
+    }
+    body{
+      width:100%;height:100%;
+    }
+    #app{
+      width:100%;height:100%;
+    }
+    ul{
+      overflow: hidden
+      width:210px;
+      height:300px;
+      border:2px solid black;
+      margin:0 20px;
+    }
+    #start{
+      margin:20px 20px;
+      border:2px solid black;
+      width:200px;
+      height:50px;
+    }
+    li img{width:100%;display: block}
+    canvas{display: block}
+    </style>
+ </head>
+
+  <body>
+    <div id="app">
+      <section style="padding:0px 5px;overflow: hidden;">
+        <hgroup id='group' style="height:300px;display: flex;justify-content: start;align-items: center;">
+        </hgroup>
+
+      </section>
+
+      <button id="start">开始</button>
+    </div>
+    
+    <script type="module">
+      import SlotMachine from './SlotMachine.js'      
+      var state='stop';
+      var root= document.querySelector('#group');
+      var scrollList=[]
+      window.onload=function(){
+        var imgs=[];
+        for(let i=1;i<=13;i++){
+          var img = new Image();
+          img.src=`images/${i}.jpg`;
+          imgs.push(img);
+        }
+
+        setTimeout(()=>{
+          
+          for(let i=0;i<3;i++){
+            var ul = document.createElement('ul');
+            var domCanvas = document.createElement('canvas');
+
+            domCanvas.id="scroll"+i;
+            domCanvas.width=210;
+            domCanvas.height=300;
+            domCanvas.style.width='100%';
+            domCanvas.style.height='100%';
+            ul.appendChild(domCanvas);
+
+            root.appendChild(ul);
+
+            var scroll = new SlotMachine({
+              imgList:imgs,
+              domCanvas:domCanvas
+            });
+            scrollList.push(scroll);
+          }
+
+        },1000);
+        
+
+        document.querySelector('#start').onclick=function(e){
+          if(state==='stop'){
+            state='start';
+            let step=0;
+            scrollList.map((item)=>{
+              setTimeout(()=>{
+                item.start();
+              },step*100 );
+              step++;
+            })
+            e.currentTarget.innerText="停止";
+          }else{
+            var img = new Image();
+            img.src='./images/1.jpg';
+            let step=0;
+            scrollList.map((item)=>{
+              setTimeout(()=>{
+                item.end(img);
+              },step*100 );
+              step++;
+              
+            });
+            state='stop';
+            e.currentTarget.innerText="开始";
+          }
+
+        }
+
+      }
+    </script>
+  </body>
+</html>
+
