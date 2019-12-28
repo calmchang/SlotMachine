@@ -1,6 +1,9 @@
 
 #### 一个老虎机滚轴插件
 
+* 60帧速率
+* 100行不到的代码
+
 ![image](https://github.com/calmchang/SlotMachine/blob/master/review.gif)
 
 ##### 使用案例
