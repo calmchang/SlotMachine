@@ -1,6 +1,8 @@
 
 #### 一个老虎机滚轴插件
 
+![image](https://github.com/calmchang/SlotMachine/blob/master/review.gif)
+
 ##### 使用案例
 
 ```
