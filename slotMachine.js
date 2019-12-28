@@ -60,18 +60,20 @@ SlotMachine.prototype.tick= function(){
   this.vY =20;
   this.y+=this.vY;
   var liH = this.liHeight;
-  this.render();
+  
 
   if( this.y >= liH ){
     this.y -= liH;
     this.drawList.shift();
     if(this.drawList[0].stop){
       this.y=0;
+      this.render();
       return;
     }
     this.drawList.push({img:this.imgList[this.imgPos++%this.posMax]});
     this.imgPos %= this.posMax;
   }
+  this.render();
   
   requestAnimationFrame(this.tick.bind(this));
 }
