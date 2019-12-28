@@ -1,7 +1,7 @@
 
 #### 高帧率老虎机滚轴插件,可以用来年会抽奖、777拉霸等
 
-![image](https://github.com/calmchang/SlotMachine/blob/master/review.gif)
+![image](https://m.vuedata.cn/crossimages/sloatmachine-review.gif)
 
 ##### 使用案例
 
