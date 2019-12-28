@@ -1,8 +1,5 @@
 
-#### 一个老虎机滚轴插件
-
-* 60帧速率
-* 100行不到的代码
+#### 高帧率老虎机滚轴插件,可以用来年会抽奖、777拉霸等
 
 ![image](https://github.com/calmchang/SlotMachine/blob/master/review.gif)
 
