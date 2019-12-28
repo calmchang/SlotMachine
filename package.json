@@ -1,0 +1,33 @@
+{
+  "name": "cx-slotmachine",
+  "version": "0.0.1",
+  "description": "老虎机的滚轴插件.",
+  "license": "MIT",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/calmchang/SlotMachine"
+  },
+  "author": {
+    "name": "cx",
+    "email": "248224524@qq.com"
+  },
+  "main": "slotMachine.js",
+  "files": [
+    "slotMachine.js"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": [
+    "lottery",
+    "slotmachine",
+    "game"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
