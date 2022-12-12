@@ -1,3 +1,4 @@
+![Page Views Count](https://badges.toozhao.com/badges/01GM1ZKCPFTDZDZXAMATBZHM10/green.svg)
 
 #### 高帧率老虎机滚轴插件,可以用来年会抽奖、777拉霸等
 
