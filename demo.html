@@ -75,8 +75,9 @@
       defaultImage.src='images/default.jpg';
 
       var imgs=[];
-      var loaded=27;
-      for(let i=1;i<=27;i++){
+      var MAX_IMG=14;
+      var loaded=MAX_IMG;
+      for(let i=1;i<=MAX_IMG;i++){
         var img = new Image();
         img.onload=()=>{
           loaded--;
@@ -110,7 +111,13 @@
             root.appendChild(ul);
 
             var scroll = new SlotMachine({
-              imgList:imgs,
+              imgList:imgs.map((img,idx)=>{
+                let nidx=rand(idx,imgs.length-1);
+                let temp=imgs[idx];
+                imgs[idx]=imgs[nidx];
+                imgs[nidx]=temp;
+                return imgs[idx];
+              }),
               domCanvas:domCanvas,
               defaultImg:defaultImage,
             });
@@ -134,9 +141,10 @@
             
             let step=0;
             scrollList.map((item)=>{
-              var ret = imgs[rand(0,27)];
+              var ret = imgs[rand(0,MAX_IMG-1)];
               setTimeout(()=>{
                 item.end(ret);
+                console.log('结果',ret)
               },step*100 );
               step++;
               
